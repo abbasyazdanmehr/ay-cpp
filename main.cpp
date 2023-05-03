@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "debug.h"
+#include "aydebug.h"
 
 using namespace std;
 
