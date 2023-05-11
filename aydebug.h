@@ -2,7 +2,29 @@
 
 using namespace std;
 
+#define line __LINE__
+
+// // ------------------------------------ sep ------------------------------------
+
+void sep()
+{
+    cout << "-------------------------------\n";
+}
+
 // ------------------------------------ print ------------------------------------
+
+// error line finding
+void print()
+{
+    cout << "HERE IS DEBUG!\n";
+}
+
+// primitives
+template <typename T>
+void print(T t)
+{
+    cout << t << "\n";
+}
 
 // 1d array //
 template <typename T>
@@ -57,7 +79,7 @@ void print(vector<pair<T, U> /**/> vp)
     {
         print(vp[i]);
     }
-    cout << "----------------------\n\n";
+    cout << "----------------------\n";
 }
 
 // queue of pairs //
@@ -70,7 +92,7 @@ void print(queue<pair<T, U> /**/> q)
         print(q.front());
         q.pop();
     }
-    cout << "----------------------\n\n";
+    cout << "----------------------\n";
 }
 
 // 1d map //
@@ -141,6 +163,67 @@ void print(map<char, char> m)
         ++it;
     }
     cout << "}\n";
+}
+
+// queue of vectors
+template <typename T>
+void print(queue<vector<T> /**/> qv)
+{
+    cout << "\n-- queue of vectors ---\n";
+    while (!qv.empty())
+    {
+        print(qv.front());
+        qv.pop();
+    }
+    cout << "----------------------\n";
+}
+
+void print(map<int, vector<int> /**/> mv)
+{
+    map<int, vector<int> /**/>::iterator it = mv.begin();
+
+    cout << "\n-- map of vectors ---\n";
+    while (it != mv.end())
+    {
+        cout << it->first << ": ";
+        print(it->second);
+        ++it;
+    }
+    cout << "----------------------\n";
+}
+
+template <typename T>
+void print(stack<T> s)
+{
+    stack<T> temp;
+    while (s.empty() == false)
+    {
+        temp.push(s.top());
+        s.pop();
+    }  
+ 
+    while (temp.empty() == false)
+    {
+        int t = temp.top();
+        cout << t << " ";
+        temp.pop();
+ 
+        s.push(t); 
+    }
+
+    cout << "\n";
+}
+
+// 2d vector //
+template <typename T>
+void print(vector<vector<T> /**/> vv)
+{
+    cout << "\n-- vector 2d ---\n";
+    for (size_t i = 0; i < vv.size(); i++)
+    {
+        print(vv[i]);
+    }
+    cout << "----------------------\n";
 }
 
 // ------------------------------------ random_initial ------------------------------------
